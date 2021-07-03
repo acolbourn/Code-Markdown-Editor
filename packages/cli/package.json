@@ -1,6 +1,6 @@
 {
   "name": "jsnotes2",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "publishConfig": {
     "access": "public"
@@ -20,7 +20,7 @@
     "@jsnotes2/local-client": "^1.0.0"
   },
   "devDependencies": {
-    "@jsnotes2/local-api": "^1.0.1",
+    "@jsnotes2/local-api": "^1.0.2",
     "@types/node": "^15.12.5",
     "commander": "^8.0.0",
     "esbuild": "0.8.26",
