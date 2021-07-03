@@ -9,6 +9,7 @@ var http_proxy_middleware_1 = require("http-proxy-middleware");
 var cells_1 = require("./routes/cells");
 var serve = function (port, filename, dir, useProxy) {
     var app = express_1.default();
+    app.use(cells_1.createCellsRouter(filename, dir));
     if (useProxy) {
         app.use(http_proxy_middleware_1.createProxyMiddleware({
             target: 'http://localhost:3000',
@@ -17,10 +18,9 @@ var serve = function (port, filename, dir, useProxy) {
         }));
     }
     else {
-        var packagePath = require.resolve('local-client/build/index.html');
+        var packagePath = require.resolve('@jsnotes2/local-client/build/index.html');
         app.use(express_1.default.static('../../local-client/build'));
     }
-    app.use(cells_1.createCellsRouter(filename, dir));
     return new Promise(function (resolve, reject) {
         app.listen(port, resolve).on('error', reject);
     });
