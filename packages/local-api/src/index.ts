@@ -25,7 +25,7 @@ export const serve = (
     const packagePath = require.resolve(
       '@jsnotes2/local-client/build/index.html'
     );
-    app.use(express.static('../../local-client/build'));
+    app.use(express.static(path.dirname(packagePath)));
   }
 
   return new Promise<void>((resolve, reject) => {
