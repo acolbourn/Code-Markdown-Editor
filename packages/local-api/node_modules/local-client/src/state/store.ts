@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
 import { persistMiddleware } from './middlewares/persist-middleware';
-// import { ActionType } from './action-types';
+import { generateInitialValues } from './initialValues';
 
 export const store = createStore(
   reducers,
@@ -10,34 +10,4 @@ export const store = createStore(
   applyMiddleware(persistMiddleware, thunk)
 );
 
-// store.dispatch({
-//   type: ActionType.INSERT_CELL_AFTER,
-//   payload: {
-//     id: null,
-//     type: 'code',
-//   },
-// });
-
-// store.dispatch({
-//   type: ActionType.INSERT_CELL_AFTER,
-//   payload: {
-//     id: null,
-//     type: 'text',
-//   },
-// });
-
-// store.dispatch({
-//   type: ActionType.INSERT_CELL_AFTER,
-//   payload: {
-//     id: null,
-//     type: 'code',
-//   },
-// });
-
-// store.dispatch({
-//   type: ActionType.INSERT_CELL_AFTER,
-//   payload: {
-//     id: null,
-//     type: 'text',
-//   },
-// });
+generateInitialValues(store);
